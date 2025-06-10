@@ -1,7 +1,7 @@
-# Underwater Autonomous Vehicle Navigation System
+# Uncertainty Aware Mapping and Exploration for Vision-Based Underwater Robots
 
 ## Overview
-This repository contains a complete system for underwater autonomous vehicle (UAV) navigation using GB Planner with custom Voxblox integration and HoloOcean simulation. The system provides uncertainity aware mapping, path planning capabilities with visibility estimation and fog density analysis for underwater environments.
+This repository contains a complete system for Uncertainity Aware Mapping and Planning using GBPlanner with custom Voxblox integration and HoloOcean simulation. The system provides uncertainity aware mapping, path planning capabilities with visibility estimation and confidensity density analysis for underwater environments.
 
 ## Repository Structure
 ```
@@ -227,7 +227,8 @@ If you use this work in your research, please cite:
 - [HoloOcean](https://github.com/BYU-PCCL/holodeck-engine)
 
 ## License
-[Specify your license here]
+
+BSD-3-Clause license 
 
 ## Contact
 [bhowmikabhimanyu@gmail.com](mailto:bhowmikabhimanyu@gmail.com)
