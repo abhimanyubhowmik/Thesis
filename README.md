@@ -213,7 +213,12 @@ rostopic hz /topic_name
 ## Citation
 If you use this work in your research, please cite:
 ```
-[Your thesis citation information]
+@article{unpublished,
+  author    = {Bhowmik, Abhimanyu and Singh, Mohit and Sannigrahi, Madhushree and Ludvigsen, Martin and Alexis, Kostas},
+  title     = {Uncertainty Aware Mapping for Vision-Based Underwater Robots},
+  workshop   = {Field Robotics at ICRA},
+  year      = {2025},
+}
 ```
 
 ## Dependencies
