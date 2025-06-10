@@ -1,0 +1,57 @@
+<launch>
+    <!-- HoloOcean Configuration -->
+    <arg name="env_config" default="OceanSimple-Hovering2CameraOnly-VisibilityEstimation"/>
+    <arg name="show_viewport" default="true"/>
+    <arg name="fog_density" default="5.0"/>
+    <arg name="render_quality" default="3"/>
+    <arg name="trajectory_update_rate" default="10.0"/>
+    <arg name="use_sim_time" value="false"/> <!-- Use system time for HoloOcean -->
+    <param name="use_sim_time" value="$(arg use_sim_time)"/>
+
+    <!-- Path to config files -->
+    <arg name="pid_config" default="$(find holoocean_ros)/config/pid_config.yaml"/>
+    <arg name="camera_intrinsics_file" default="$(find holoocean_ros)/config/camera_intrinsics.yaml"/>
+
+    <!-- Launch the HoloOcean ROS node -->
+    <node name="holoocean_integrated" pkg="holoocean_ros" type="holoocean_integrated_fog.py" output="screen">
+    <param name="env_config" value="$(arg env_config)"/>
+    <param name="show_viewport" value="$(arg show_viewport)"/>
+    <param name="fog_density" value="$(arg fog_density)"/>
+    <param name="render_quality" value="$(arg render_quality)"/>
+    <param name="trajectory_update_rate" value="$(arg trajectory_update_rate)"/>
+    <param name="pid_config" value="$(arg pid_config)"/>
+    <param name="camera_intrinsics_file" value="$(arg camera_intrinsics_file)"/>
+
+     <!-- Fog Density Controller Parameters -->
+        <!-- World size in meters (2km = 2000m) -->
+        <param name="world_size" value="200.0" />
+        
+        <!-- World center coordinates [x, y] -->
+        <rosparam param="world_center">[0.0, 0.0]</rosparam>
+        
+        <!-- Low and high fog density values -->
+        <param name="fog_density_low" value="1.0" />
+        <param name="fog_density_high" value="5.0" />
+        
+        <!-- Division type: 'vertical', 'horizontal', 'diagonal', or 'circular' -->
+        <param name="division_type" value="vertical" />
+        
+        <!-- Hysteresis margin to prevent rapid switching (meters) -->
+        <param name="hysteresis_margin" value="0.0" />
+
+        <param name="debug_fog_controller" value="true" />
+    </node>
+
+      <!-- Start nodelet manager -->
+    <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen"/>
+
+    <!-- Start depth_image_proc nodelet -->
+    <node pkg="nodelet" type="nodelet" name="depth_to_pointcloud" 
+          args="load depth_image_proc/point_cloud_xyz nodelet_manager" output="screen">
+        <remap from="image_rect" to="/camera/depth/image_raw"/>
+        <remap from="camera_info" to="/camera/depth/camera_info"/>
+        <remap from="points" to="/camera/depth/points"/>
+        <param name="sensor_frame" value="camera_depth_optical_frame" />
+    </node>
+    
+</launch>

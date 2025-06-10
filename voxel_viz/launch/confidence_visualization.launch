@@ -1,0 +1,18 @@
+<launch>
+  <node name="confidence_volume_visualizer" pkg="voxel_viz" type="confidence_visualization_4.py" output="screen">
+    <!-- Enable percentile-based coloring -->
+    <param name="use_percentile_coloring" value="false" />
+    <!-- Keep adaptive scaling enabled -->
+    <param name="adaptive_color_scaling" value="true" />
+    <!-- Disable fixed bounds when using percentiles -->
+    <param name="use_fixed_bounds" value="true" />
+    <param name="cube_size" value="10.0" />
+    <param name="confidence_topic" value="/gbplanner_node/surface_pointcloud_confidence" />
+    <param name="frame_id" value="world" />
+    <param name="visualize_interval" value="5.0" />
+    <param name="confidence_min" value="0.0" />
+    <param name="confidence_max" value="1000.0" />
+    <param name="max_markers" value="500" />
+
+  </node>
+</launch>

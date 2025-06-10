@@ -1,0 +1,16 @@
+camera_model: pinhole
+intrinsics:
+  fx: 160.0
+  fy: 160.0
+  cx: 160.0
+  cy: 120.0
+resolution:
+  height: 240
+  width: 380
+distortion:
+  model: radtan
+  parameters:
+    k1: 0.0
+    k2: 0.0
+    p1: 0.0
+    p2: 0.0

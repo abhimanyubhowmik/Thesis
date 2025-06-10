@@ -1,0 +1,12 @@
+simulation:
+  ticks_per_sec: 60    # Match monitor refresh rate (60Hz typical)
+  resolution: [640, 480]
+  camera_fps: 30       # Match target publishing rate
+
+control:
+  force: 25
+  max_angular_vel: 1.0
+
+ros:
+  pub_queue_size: 1    # Prefer latest frame over queuing
+  pub_rate: 30         # Match camera_fps

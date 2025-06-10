@@ -1,0 +1,28 @@
+{
+    "name": "Dam-HoveringCamera",
+    "world": "SimpleUnderwater",
+    "package_name": "Ocean",
+    "main_agent": "auv0",
+    "ticks_per_sec": 60,
+    "agents": [
+        {
+            "agent_name": "auv0",
+            "agent_type": "HoveringAUV",
+            "sensors": [
+                {
+                    "sensor_type": "RGBCamera",
+                    "sensor_name": "LeftCamera",
+                    "socket": "CameraSocket",
+                    "configuration": {
+                        "CaptureWidth": 640,
+                        "CaptureHeight": 480,
+                        "FOV": 90,
+                        "VSync": true 
+                    }
+                }
+            ],
+            "control_scheme": 0,
+            "location": [0, 0, -10]
+        }
+    ]
+}
