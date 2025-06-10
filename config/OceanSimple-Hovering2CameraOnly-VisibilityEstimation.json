@@ -1,0 +1,102 @@
+{
+    "name": "HoveringCameraOnly",
+    "world": "OceanSimple",
+    "main_agent": "auv0",
+    "ticks_per_sec": 50,
+    "frames_per_sec":10,
+    "agents":[
+        {
+            "agent_name": "auv0",
+            "agent_type": "HoveringAUV",
+            "sensors": [
+                {
+                    "sensor_type": "PoseSensor",
+                    "sensor_name": "ImuPoseSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 50
+                },
+                {
+                    "sensor_type": "PoseSensor",
+                    "sensor_name": "PoseSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 50
+                },
+                {
+                    "sensor_type": "PoseSensor",
+                    "sensor_name": "CameraLeftPoseSensor",
+                    "socket": "CameraLeftSocket",
+                    "Hz": 50
+                },
+                {
+                    "sensor_type": "PoseSensor",
+                    "sensor_name": "CameraRightPoseSensor",
+                    "socket": "CameraRightSocket",
+                    "Hz": 50
+                },
+
+                {
+                    "sensor_type": "RGBCamera",
+                    "sensor_name": "Cam0RGBImg",
+                    "socket": "CameraRightSocket",
+                    "Hz": 10,
+                    "configuration": {
+                        "CaptureWidth": 320,
+                        "CaptureHeight": 240,
+                        "ticks_per_capture": 1}
+                },
+                {
+                    "sensor_type": "DepthCamera",
+                    "sensor_name": "Cam0DepthImg",
+                    "socket": "CameraRightSocket",
+                    "Hz": 10,
+                    "configuration": {
+                        "CaptureWidth": 320,
+                        "CaptureHeight": 240,
+                        "ticks_per_capture": 1}
+                },
+                {
+                    "sensor_type": "RGBCamera",
+                    "sensor_name": "Cam1RGBImg",
+                    "socket": "CameraLeftSocket",
+                    "Hz": 10,
+                    "configuration": {
+                        "CaptureWidth": 320,
+                        "CaptureHeight": 240,
+                        "ticks_per_capture": 1}
+                },
+                {
+                    "sensor_type": "VelocitySensor",
+                    "sensor_name": "VelocityRobotSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 10
+                },
+                {
+                    "sensor_type": "IMUSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 50,
+                    "AccelBiasSigma": 0.0001,
+                    "AngVelBiasSigma": 0.0001
+                },
+                {
+                    "sensor_type": "RotationSensor",
+                    "sensor_name": "RotationSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 10
+                },
+                {
+                    "sensor_type": "DynamicsSensor",
+                    "sensor_name": "DynamicsSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 50
+                }
+                    
+            ],
+            "control_scheme": 0,
+            "location": [0, 0, 7],
+            "rotation": [0.0, 0.0, 0.0]
+        }
+    ],
+
+    "window_width":  1280,
+    "window_height": 720
+}
